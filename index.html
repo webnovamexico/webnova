@@ -1,108 +1,422 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>Web Nova México | Diseño de Páginas Web Profesionales en México | Sitios Modernos y Optimizados para Google</title>
+  <title>WEBNOVAMEXICO | Diseño Web Profesional que Vende</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agencia de diseño web en México. Creamos sitios modernos, cálidos y optimizados para vender más.">
 
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <style>
+    /* --- VARIABLES DE COLOR (Tema Cálido y Atractivo) --- */
+    :root {
+      --primary: #ea580c;       /* Naranja quemado vibrante */
+      --primary-light: #fb923c; /* Naranja más claro para degradados */
+      --secondary: #1e293b;     /* Azul marino oscuro para contraste elegante */
+      --bg-light: #fafaf9;      /* Fondo crema muy claro */
+      --bg-white: #ffffff;      /* Blanco puro para tarjetas */
+      --text-dark: #1c1917;     /* Casi negro cálido para texto principal */
+      --text-muted: #57534e;    /* Gris cálido para párrafos */
+      --gradient-warm: linear-gradient(135deg, var(--primary), var(--primary-light));
+    }
 
-  <meta name="description" content="Agencia profesional de creación de páginas web en todo México. Diseño moderno, visual, seguro y optimizado para Google." />
+    /* --- ESTILOS GENERALES --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html { scroll-behavior: smooth; }
 
-  <link rel="stylesheet" href="style.css">
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Poppins', sans-serif;
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    a { text-decoration: none; transition: 0.3s; }
+    ul { list-style: none; padding-left: 20px; }
+    ul li { margin-bottom: 10px; }
+
+    /* --- UTILIDADES --- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 35px;
+      background: var(--gradient-warm);
+      color: white;
+      font-weight: 700;
+      border-radius: 50px;
+      box-shadow: 0 10px 20px -10px rgba(234, 88, 12, 0.5);
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px -10px rgba(234, 88, 12, 0.7);
+    }
+    
+    .btn.secondary-btn {
+        background: transparent;
+        border: 2px solid white;
+        box-shadow: none;
+    }
+    .btn.secondary-btn:hover {
+        background: white;
+        color: var(--primary);
+    }
+
+    /* --- NAVBAR (Limpio y claro) --- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95); /* Blanco translúcido */
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 15px 0;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--secondary); }
+
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a { color: var(--text-dark); font-weight: 600; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta { padding: 10px 25px !important; font-size: 0.8rem !important;}
+
+    /* --- HERO SECTION (El cambio principal) --- */
+    .hero {
+      height: 100vh; /* Pantalla completa */
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      /* Imagen cálida de fondo (oficina moderna con luz dorada) */
+      background: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    }
+
+    /* Capa superpuesta naranja/dorada para dar calidez a la imagen */
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to right, rgba(234, 88, 12, 0.8), rgba(30, 41, 59, 0.7));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2; /* Encima del overlay */
+      color: white;
+      max-width: 800px;
+    }
+
+    /* Estilo potente para el nombre de la empresa */
+    .company-name-big {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      /* Efecto de texto degradado blanco a naranja claro */
+      background: linear-gradient(to right, #ffffff, #fed7aa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      max-width: 600px;
+    }
+    
+    .hero-btns { display: flex; gap: 20px; }
+
+    /* --- SECCIONES GENERALES --- */
+    .section { padding: 100px 0; }
+    .section-header { text-align: center; margin-bottom: 70px; }
+    .section-header h2 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
+    .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+    .sub-text { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; display: block; margin-bottom: 10px; }
+
+    /* --- SPLIT SECTIONS (Texto + Imagen) --- */
+    .split { display: flex; align-items: center; gap: 60px; }
+    .split.reverse { flex-direction: row-reverse; }
+    .split-text { flex: 1; }
+    .split-text h2 { font-size: 2.8rem; margin-bottom: 25px; line-height: 1.2; }
+    .split-text p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; }
+    
+    .image-container {
+        flex: 1;
+        position: relative;
+    }
+    /* Marco decorativo naranja detrás de la imagen */
+    .image-container::before {
+        content: '';
+        position: absolute;
+        top: -20px; left: -20px;
+        width: 100%; height: 100%;
+        border: 3px solid var(--primary);
+        border-radius: 20px;
+        z-index: 0;
+        opacity: 0.3;
+    }
+    .split-image {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* --- SERVICIOS (Tarjetas Limpias) --- */
+    .services { background: var(--bg-white); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background: var(--bg-light);
+      padding: 50px 35px;
+      border-radius: 25px;
+      transition: 0.4s;
+      text-align: left;
+      border: 1px solid transparent;
+    }
+
+    .card:hover {
+      background: var(--bg-white);
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: var(--primary-light);
+    }
+
+    .icon-box {
+      width: 70px; height: 70px;
+      background: var(--gradient-warm);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 25px;
+      font-size: 1.8rem; color: white;
+      box-shadow: 0 10px 20px -10px rgba(234, 88, 12, 0.6);
+    }
+
+    .card h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--secondary); }
+    .card p { color: var(--text-muted); }
+
+    /* --- CTA FINAL (Impacto Cálido) --- */
+    .cta {
+      text-align: center;
+      /* Degradado naranja cálido */
+      background: linear-gradient(to right, #c2410c, #ea580c);
+      padding: 120px 20px;
+      color: white;
+    }
+    .cta h2 { color: white; font-size: 3rem; }
+    .cta p { color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 40px; }
+    .btn.white-btn { background: white; color: var(--primary); }
+    .btn.white-btn:hover { background: var(--bg-light); transform: translateY(-5px); }
+
+    /* --- FOOTER --- */
+    footer {
+      background: var(--secondary);
+      text-align: center;
+      padding: 50px 20px;
+      color: rgba(255,255,255,0.7);
+    }
+    footer .logo { color: white; margin-bottom: 20px; display: inline-block;}
+
+    /* --- BOTÓN WHATSAPP --- */
+    .whatsapp-btn {
+      position: fixed; bottom: 30px; right: 30px;
+      background: #25d366; color: white;
+      width: 65px; height: 65px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 2000; transition: 0.3s;
+    }
+    .whatsapp-btn:hover { transform: scale(1.1) rotate(10deg); }
+
+    /* --- ANIMACIONES SCROLL --- */
+    .hidden { opacity: 0; transform: translateY(60px); transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .show { opacity: 1; transform: translateY(0); }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 992px) {
+      .company-name-big { font-size: 3rem; }
+      .split { flex-direction: column; gap: 40px; }
+      .split.reverse { flex-direction: column; }
+      .image-container { width: 100%; }
+      .image-container::before { display: none; } /* Simplificar en móvil */
+      .nav-links { display: none; } /* Menú móvil pendiente de implementar */
+      .hero-btns { flex-direction: column; }
+      .btn.secondary-btn { border-color: var(--primary); color: white; background: var(--primary); }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-content">
-    <h1>Creamos Páginas Web que Impactan</h1>
-    <p>Diseño profesional, visual y moderno para negocios en todo México</p>
-    <a href="tel:3318608096" class="btn">📞 Llámanos ahora</a>
-  </div>
-</header>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">WEBNOVA<span>MÉXICO</span></div>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto" class="btn nav-cta">Contacto</a>
+      </div>
+    </div>
+  </nav>
 
-<!-- SECCIÓN TEXTO + IMAGEN -->
-<section class="section split">
-  <div class="text">
-    <h2>Tu Presencia Digital Importa</h2>
-    <p>
-      Una página web profesional transmite confianza, seriedad y
-      hace que tus clientes quieran contratarte.
-    </p>
-  </div>
-  <div class="image">
-    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Diseño web">
-  </div>
-</section>
+  <header class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content hidden">
+      <span class="sub-text" style="color: #fed7aa;">Agencia de Diseño y Desarrollo</span>
+      <h1 class="company-name-big">WEBNOVAMEXICO</h1>
+      <p class="hero-subtitle">Impulsamos negocios mexicanos con páginas web profesionales, atractivas y diseñadas para vender más.</p>
+      <div class="hero-btns">
+          <a href="tel:3311350671" class="btn">
+            <i class="fas fa-phone-alt"></i> Llámanos ahora
+          </a>
+          <a href="#servicios" class="btn secondary-btn">
+            Ver Servicios
+          </a>
+      </div>
+    </div>
+  </header>
 
-<!-- SERVICIOS -->
-<section class="section services">
-  <h2>Nuestros Servicios</h2>
-  <div class="grid">
-    <div class="card">🌐 Diseño Web Profesional</div>
-    <div class="card">🚀 Optimización para Google</div>
-    <div class="card">🔒 Seguridad y Velocidad</div>
-    <div class="card">📱 Diseño Responsivo</div>
-    <div class="card">💼 Webs Corporativas</div>
-    <div class="card">🛒 Tiendas en Línea</div>
-  </div>
-</section>
+  <section class="section" id="beneficios">
+    <div class="container split">
+      <div class="split-text hidden">
+        <span class="sub-text">Tu imagen digital</span>
+        <h2>¿Por qué tu negocio necesita una web profesional?</h2>
+        <p>
+          En la actualidad, la primera impresión de tu negocio sucede en Google. Una página web anticuada o lenta te hace perder clientes todos los días.
+        </p>
+        <ul style="color: var(--text-muted);">
+          <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right: 10px;"></i> <b>Transmite confianza</b> inmediata a nuevos clientes.</li>
+          <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right: 10px;"></i> <b>Vende 24/7</b>, incluso cuando estás dormido.</li>
+          <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right: 10px;"></i> <b>Te diferencia</b> de la competencia local.</li>
+        </ul>
+      </div>
+      <div class="image-container hidden">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipo de diseño web" class="split-image">
+      </div>
+    </div>
+  </section>
 
-<!-- IMAGEN FULL -->
-<section class="image-full">
-  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Equipo creativo">
-</section>
+  <section class="section services" id="servicios">
+    <div class="container">
+      <div class="section-header hidden">
+        <span class="sub-text">Lo que hacemos por ti</span>
+        <h2>Nuestros Servicios Especializados</h2>
+        <p>Soluciones digitales a la medida de tu empresa, enfocadas en resultados reales.</p>
+      </div>
+      
+      <div class="grid">
+        <div class="card hidden">
+          <div class="icon-box"><i class="fas fa-palette"></i></div>
+          <h3>Diseño Web Atractivo</h3>
+          <p>Creamos sitios visualmente impactantes que reflejan la calidad de tu marca y enamoran a tus visitas.</p>
+        </div>
+        <div class="card hidden">
+           <div class="icon-box"><i class="fas fa-search-dollar"></i></div>
+          <h3>Optimización Google (SEO)</h3>
+          <p>Estructuramos tu sitio para que sea amigo de Google y tus clientes te encuentren más fácil.</p>
+        </div>
+        <div class="card hidden">
+           <div class="icon-box"><i class="fas fa-store"></i></div>
+          <h3>Tiendas en Línea</h3>
+          <p>Empieza a vender tus productos por internet con un sistema de pagos seguro y fácil de usar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- OTRA SECCIÓN TEXTO + IMAGEN -->
-<section class="section split reverse">
-  <div class="text">
-    <h2>Diseños que Venden</h2>
-    <p>
-      Creamos experiencias visuales que atrapan, generan confianza
-      y convierten visitas en clientes reales.
-    </p>
-  </div>
-  <div class="image">
-    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Trabajo en equipo">
-  </div>
-</section>
+  <section class="section">
+    <div class="container split reverse">
+      <div class="split-text hidden">
+         <span class="sub-text">Resultados Reales</span>
+        <h2>Más que una página bonita, una herramienta de ventas.</h2>
+        <p>
+          No solo diseñamos "dibujos" en internet. Creamos experiencias estratégicas pensadas para convertir visitantes curiosos en clientes que pagan. Velocidad, claridad y llamados a la acción efectivos.
+        </p>
+        <a href="#contacto" class="btn" style="margin-top: 20px;">Quiero cotizar mi proyecto</a>
+      </div>
+      <div class="image-container hidden">
+         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estrategia digital y resultados" class="split-image">
+      </div>
+    </div>
+  </section>
 
-<!-- GALERÍA -->
-<section class="section gallery">
-  <h2>Estilo Moderno y Profesional</h2>
-  <div class="gallery-grid">
-    <img src="https://images.unsplash.com/photo-1556155092-8707de31f9c4">
-    <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93">
-    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-  </div>
-</section>
 
-<!-- COBERTURA -->
-<section class="section coverage">
-  <h2>Cobertura en Todo México 🇲🇽</h2>
-  <p>
-    Trabajamos con empresas y emprendedores en cualquier
-    parte del país.
-  </p>
-</section>
+  <section class="section cta hidden" id="contacto">
+    <div class="container">
+      <h2>¿Listo para digitalizar tu negocio?</h2>
+      <p>Hablemos hoy mismo sobre cómo podemos ayudarte a crecer.</p>
+      <a href="tel:3311350671" class="btn white-btn" style="font-size: 1.3rem; padding: 18px 45px;">
+        <i class="fas fa-phone-volume"></i> Llámanos: 33 1135 0671
+      </a>
+    </div>
+  </section>
 
-<!-- CTA FINAL -->
-<section class="section cta">
-  <h2>¿Necesitas Nuestros Servicios?</h2>
-  <p>Contáctanos hoy mismo y lleva tu negocio al siguiente nivel</p>
-  <a href="tel:3311350671" class="btn big">📲 3318608096</a>
-</section>
+  <footer>
+    <div class="container">
+      <div class="logo">WEBNOVA<span>MÉXICO</span></div>
+      <p>© 2026 Todos los derechos reservados. Hecho con pasión en México.</p>
+    </div>
+  </footer>
 
-<footer>
-  © 2026 Agencia de Creación de Páginas Web | Todo México
-</footer>
+  <a href="https://wa.me/523311350671?text=Hola,%20me%20interesa%20una%20página%20web" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-<script src="script.js"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
+  </script>
+
 </body>
 </html>
-
-
-
-
